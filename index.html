@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이레인스트루먼트</title>
+<meta name="description" content="이레인스트루먼트 - 정밀 계측 및 산업용 계기 전문 기업">
+<style>
+  :root {
+    --color-primary: #1a3a5c;
+    --color-primary-dark: #0f2540;
+    --color-accent: #2f7dd1;
+    --color-bg: #ffffff;
+    --color-bg-alt: #f5f7fa;
+    --color-text: #1f2937;
+    --color-text-muted: #5b6472;
+    --color-border: #e2e6ea;
+    --max-width: 1120px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.6;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .nav-links a:hover { color: var(--color-accent); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: #fff;
+    padding: 96px 0 88px;
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero .eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a9c6ea;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    max-width: 20ch;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    color: #d7e3f2;
+    max-width: 56ch;
+  }
+
+  .hero-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: #2569b3;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Sections */
+  section { padding: 84px 0; }
+
+  section.alt { background: var(--color-bg-alt); }
+
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 44px;
+  }
+
+  .section-head .tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .section-head p {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+  }
+
+  /* About */
+  .about-text p {
+    color: var(--color-text-muted);
+    margin-bottom: 16px;
+    font-size: 1.02rem;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .stats {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .stat {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .stat .num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+
+  .stat .label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+  }
+
+  /* Products */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 28px 24px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 28px rgba(15, 37, 64, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .card .icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    background: rgba(47, 125, 209, 0.1);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  .card h3 {
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .contact-item .icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: rgba(47, 125, 209, 0.1);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .contact-item .label {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+  }
+
+  .contact-item .value {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .info-card {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+
+  .info-card h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.94rem;
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-row .k { color: var(--color-text-muted); }
+  .info-row .v { font-weight: 600; text-align: right; }
+
+  /* Footer */
+  footer {
+    background: var(--color-primary-dark);
+    color: #cbd8e8;
+    padding: 32px 0;
+    text-align: center;
+    font-size: 0.86rem;
+  }
+
+  footer .brand-f {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { gap: 16px; font-size: 0.86rem; }
+    .hero { padding: 64px 0 56px; }
+    section { padding: 56px 0; }
+    .grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; }
+    .info-row { flex-direction: column; gap: 4px; }
+    .info-row .v { text-align: left; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #10161d;
+      --color-bg-alt: #161e27;
+      --color-text: #e6ebf1;
+      --color-text-muted: #9aa6b2;
+      --color-border: #26303b;
+    }
+    header { background: rgba(16, 22, 29, 0.9); }
+    .card, .stat { background: #131a22; }
+    .info-card { background: #131a22; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav container">
+    <div class="brand">이레인스트루먼트</div>
+    <div class="nav-links">
+      <a href="#about">회사소개</a>
+      <a href="#products">제품/서비스</a>
+      <a href="#contact">연락처</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Precision Instruments</span>
+    <h1>정밀 계측 기술로 산업 현장의 신뢰를 만듭니다</h1>
+    <p>이레인스트루먼트는 산업용 계측기 및 정밀 측정 솔루션을 공급하는 전문 기업입니다. 고객의 생산 현장에 최적화된 장비와 기술 지원으로 품질과 안전을 함께 지킵니다.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#products">제품 살펴보기</a>
+      <a class="btn btn-outline" href="#contact">문의하기</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">About Us</span>
+      <h2>회사 소개</h2>
+    </div>
+    <div class="about-text">
+      <p>이레인스트루먼트는 산업용 정밀 계측기와 측정 장비를 전문적으로 공급·유통하는 기업입니다. 제조, 플랜트, 연구 시설 등 다양한 산업 현장에서 요구되는 정확하고 신뢰할 수 있는 계측 솔루션을 제공하기 위해 노력하고 있습니다.</p>
+      <p>단순한 장비 공급을 넘어 고객의 현장 환경과 요구사항을 깊이 이해하고, 최적의 제품 선정부터 설치, 교정, 사후 기술 지원까지 전 과정을 함께합니다. 축적된 현장 경험과 전문성을 바탕으로 고객이 안심하고 사용할 수 있는 파트너가 되겠습니다.</p>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="num">정밀 계측</div>
+        <div class="label">전문 분야</div>
+      </div>
+      <div class="stat">
+        <div class="num">현장 중심</div>
+        <div class="label">기술 지원</div>
+      </div>
+      <div class="stat">
+        <div class="num">신뢰</div>
+        <div class="label">고객과의 약속</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Products &amp; Services</span>
+      <h2>주요 제품 및 서비스</h2>
+      <p>산업 현장의 요구에 맞춘 계측 장비 공급과 전문 기술 서비스를 제공합니다.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">01</div>
+        <h3>산업용 정밀 계측기</h3>
+        <p>제조 및 플랜트 현장에 최적화된 고정밀 측정 장비를 공급합니다.</p>
+      </div>
+      <div class="card">
+        <div class="icon">02</div>
+        <h3>측정 솔루션 컨설팅</h3>
+        <p>현장 환경과 공정 특성을 분석하여 최적의 계측 시스템을 제안합니다.</p>
+      </div>
+      <div class="card">
+        <div class="icon">03</div>
+        <h3>설치 및 교정 서비스</h3>
+        <p>장비 설치부터 정기 교정까지 정확도 유지를 위한 전문 서비스를 제공합니다.</p>
+      </div>
+      <div class="card">
+        <div class="icon">04</div>
+        <h3>기술 지원 &amp; A/S</h3>
+        <p>제품 도입 이후에도 신속한 사후 지원으로 안정적인 운영을 돕습니다.</p>
+      </div>
+      <div class="card">
+        <div class="icon">05</div>
+        <h3>맞춤형 계측 시스템 구축</h3>
+        <p>고객 현장 특성에 맞춘 계측 시스템 설계 및 구축을 지원합니다.</p>
+      </div>
+      <div class="card">
+        <div class="icon">06</div>
+        <h3>수입 계측 장비 공급</h3>
+        <p>해외 우수 계측기 브랜드의 국내 공급 및 유통을 담당합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">Contact</span>
+      <h2>연락처</h2>
+      <p>궁금하신 사항이 있으시면 언제든 문의해 주세요.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="icon">✉</div>
+          <div>
+            <div class="label">이메일</div>
+            <div class="value"><a href="mailto:spjo@outlook.kr">spjo@outlook.kr</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <div>
+            <div class="label">주소</div>
+            <div class="value">서울시 홍제내길 38(홍제동) 3층</div>
+          </div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3>사업자 정보</h3>
+        <div class="info-row">
+          <span class="k">회사명</span>
+          <span class="v">이레인스트루먼트</span>
+        </div>
+        <div class="info-row">
+          <span class="k">사업자 등록번호</span>
+          <span class="v">110-06-48297</span>
+        </div>
+        <div class="info-row">
+          <span class="k">주소</span>
+          <span class="v">서울시 홍제내길 38(홍제동) 3층</span>
+        </div>
+        <div class="info-row">
+          <span class="k">이메일</span>
+          <span class="v">spjo@outlook.kr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="brand-f">이레인스트루먼트</div>
+    <div>서울시 홍제내길 38(홍제동) 3층 · 사업자 등록번호 110-06-48297</div>
+    <div>&copy; 2026 이레인스트루먼트. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
